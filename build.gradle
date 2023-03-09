@@ -1,0 +1,45 @@
+buildscript {
+
+    ext { //전역변수 설정하겠다는 의미
+        springBootVersion = '2.1.7.RELEASE' //전역변수 설정
+    }
+
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}") //spring Boot 버전을 위와 같이 설정하겠다
+        //classpath "io.spring.gradle:dependency-management-plugin:1.1.0"
+    }
+
+}
+
+//4개 플러그인은 스프링부트의 의존성을 관리해주는 플러그인이라 꼭 추가해야 함
+apply plugin : 'java'
+apply plugin : 'eclipse'
+apply plugin : 'org.springframework.boot'
+apply plugin : 'io.spring.dependency-management'
+
+
+group 'com.jojoIdu.book'
+version '1.0-SNAPSHOT'
+sourceCompatibility = 11
+
+
+repositories {
+    mavenCentral()
+    jcenter()
+
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+    implementation('org.springframework.boot:spring-boot-starter-web')
+    testImplementation('org.springframework.boot:spring-boot-starter-test')
+}
+
+test {
+    useJUnitPlatform()
+}
