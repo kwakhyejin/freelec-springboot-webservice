@@ -19,7 +19,7 @@ public class PostsRepositoryTest {
     @Autowired
     PostsRepository postsRepository;
 
-    @After //  단위테스트가 끝날때마다 수행되는 메서드를 지정함. 여러테스트 동시 수행시 데이터가 남아있을수 있으므로 삭제함.
+    @After //  단위테스트가 끝날 때마다 수행되는 메서드를 지정함. 여러테스트 동시 수행시 데이터가 남아있을수 있으므로 삭제함.
     public void cleanup() {
         postsRepository.deleteAll();
     }
