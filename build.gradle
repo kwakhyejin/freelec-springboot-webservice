@@ -49,6 +49,13 @@ dependencies {
     // jpa 설정
     implementation('org.springframework.boot:spring-boot-starter-data-jpa') // 스프링부트용 Spring Data Jpa  추상화 라이브러리
     implementation('com.h2database:h2') // 인메모리형 관계형 데이터 베이스
+
+    // 머스테치 설정
+    implementation('org.springframework.boot:spring-boot-starter-mustache')
+
+    // 스프링 시큐리티 의존성 설정
+    implementation('org.springframework.boot:spring-boot-starter-oauth2-client')
+
 }
 
 test {
