@@ -1,5 +1,6 @@
 package com.jojoIdu.book.springboot.web;
 
+import com.jojoIdu.book.springboot.config.auth.LoginUser;
 import com.jojoIdu.book.springboot.config.auth.dto.SessionUser;
 import com.jojoIdu.book.springboot.service.posts.PostsService;
 import com.jojoIdu.book.springboot.web.dto.PostsResponseDto;
@@ -22,7 +23,8 @@ public class IndexController {
 
     // 인덱스 페이지, 전체 조회
     @GetMapping("/")
-    public String index(Model model) {
+//    public String index(Model model) {
+    public String index(Model model, @LoginUser SessionUser user) {
         /* 머스테치 스타터 덕분에 컨트롤러에서 문자열을 반환할때
         앞의 경로와 뒤의 파일 확장자는 자동으로 지정됨.
         앞의 경로는 src/main/resources/templates 이고
@@ -30,7 +32,7 @@ public class IndexController {
         여기선 src/main/resources/templates/index.mustache파일로 View Resolver가 처리함!
          */
         model.addAttribute("posts",postService.findAllDesc());
-        SessionUser user = (SessionUser) httpSession.getAttribute("user");
+//        SessionUser user = (SessionUser) httpSession.getAttribute("user");
         if(user != null) {
             model.addAttribute("userName",user.getName());
         }
