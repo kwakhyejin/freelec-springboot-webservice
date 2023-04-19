@@ -56,6 +56,9 @@ dependencies {
     // 스프링 시큐리티 의존성 설정
     implementation('org.springframework.boot:spring-boot-starter-oauth2-client')
 
+    // 데이터베이스 세션 저장소 설정
+    implementation('org.springframework.session:spring-session-jdbc')
+
 }
 
 test {
